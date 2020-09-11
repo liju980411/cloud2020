@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
 
-    public static final String PAYMENT_IPNO = "http://localhost:8001";
+    public static final String PAYMENT_IPNO = "http://cloud-payment-service";
 
     @Resource
     private RestTemplate restTemplate;
@@ -25,7 +25,6 @@ public class OrderController {
 
     @GetMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment){
-        System.out.println(payment);
         return restTemplate.postForObject(PAYMENT_IPNO+"/payment/create",payment,CommonResult.class);
     }
 
