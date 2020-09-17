@@ -14,6 +14,7 @@ import sun.applet.Main;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 //Spring4之后新加入的注解，原来返回json需要@ResponseBody和@Controller配合。
 //即@RestController是@ResponseBody和@Controller的组合注解。
@@ -70,4 +71,13 @@ public class PaymentController {
         return this.discoveryClient;
     }
 
+    @GetMapping(value = "/feign/timeout")
+    public String timeout(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
+    }
 }
