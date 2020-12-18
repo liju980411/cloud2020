@@ -42,4 +42,13 @@ public class OrderController {
         }
         return new CommonResult<>(444,"sasdasd");
     }
+
+    // ====================> zipkin+sleuth
+    @RequestMapping("/consumer/payment/zipkin")
+    public String paymentZipkin()
+    {
+        String result = restTemplate.getForObject(PAYMENT_IPNO+"/payment/zipkin/", String.class);
+        return result;
+    }
+
 }
