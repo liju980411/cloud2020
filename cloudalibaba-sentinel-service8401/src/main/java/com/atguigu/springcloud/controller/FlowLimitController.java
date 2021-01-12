@@ -13,6 +13,7 @@ public class FlowLimitController
 {
     @GetMapping("/testA")
     public String testA() {
+        int age = 10/0;
         return "------testA";
     }
 
