@@ -1,10 +1,10 @@
 package com.atguigu.springcloud.dao;
 
 import com.atguigu.springcloud.domain.Order;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
-@Component
+@Mapper
 public interface OrderDao {
 
     //创建订单

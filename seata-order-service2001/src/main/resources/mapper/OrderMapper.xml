@@ -4,19 +4,19 @@
 <mapper namespace="com.atguigu.springcloud.dao.OrderDao">
 
     <resultMap id="order" type="com.atguigu.springcloud.domain.Order">
-        <id column="id" property="id" jdbcType="bigint"/>
-        <result column="user_id" property="userId" jdbcType="bigint"/>
-        <result column="product_id" property="productId" jdbcType="bigint"/>
-        <result column="count" property="count" jdbcType="int"/>
-        <result column="money" property="money" jdbcType="decimal"/>
-        <result column="status" property="status" jdbcType="int"/>
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="product_id" property="productId"/>
+        <result column="count" property="count"/>
+        <result column="money" property="money"/>
+        <result column="status" property="status"/>
     </resultMap>
 
-    <insert id="create" parameterMap="order">
+    <insert id="create" parameterType="com.atguigu.springcloud.domain.Order">
         insert into t_order(id,user_id,product_id,count,money,status) values (null,#{userId},#{productId},#{count},#{money},0)
     </insert>
 
     <update id="update">
-        update t_order set count=#{count},status=1 where userId=#{userId} and status=#{status}
+        update t_order set status=1 where user_id=#{userId} and status=#{status}
     </update>
 </mapper>
